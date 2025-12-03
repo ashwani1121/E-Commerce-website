@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple E-Commerce Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="page">
+    <!-- Header -->
+    <header>
+      <div>
+        <div class="logo">
+          <div class="logo-badge">E</div>
+          <div>
+            EliteCart
+            <div class="tagline">Minimal store UI for your projects</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="search-bar">
+        <input
+          id="searchInput"
+          class="search-input"
+          type="text"
+          placeholder="Search products (e.g. headphones, shoes)…"
+        />
+        <div class="chip">Free delivery over <span>$50</span></div>
+      </div>
+
+      <button class="cart-button" id="cartToggleBtn">
+        <span class="cart-icon">🛒</span>
+        <span>Cart</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </header>
+
+    <!-- Main content -->
+    <main class="content">
+      <!-- Filters -->
+      <aside class="filters">
+        <h2>Filters</h2>
+        <p>Refine your search to find products faster.</p>
+
+        <div class="filter-group">
+          <div class="filter-label">Category</div>
+          <label class="filter-option">
+            <input type="radio" name="category" value="all" checked />
+            All
+          </label>
+          <label class="filter-option">
+            <input type="radio" name="category" value="electronics" />
+            Electronics
+          </label>
+          <label class="filter-option">
+            <input type="radio" name="category" value="fashion" />
+            Fashion
+          </label>
+          <label class="filter-option">
+            <input type="radio" name="category" value="home" />
+            Home & Living
+          </label>
+          <label class="filter-option">
+            <input type="radio" name="category" value="gaming" />
+            Gaming
+          </label>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-label">Max Price</div>
+          <input
+            id="priceRange"
+            class="price-range"
+            type="range"
+            min="20"
+            max="300"
+            value="300"
+          />
+          <div class="price-values">
+            <span>$20</span>
+            <span id="priceRangeValue">$300</span>
+          </div>
+        </div>
+
+        <button class="clear-filters" id="clearFiltersBtn">
+          Reset filters
+        </button>
+      </aside>
+
+      <!-- Products -->
+      <section class="products-area">
+        <div class="products-header">
+          <div>
+            <h1>Featured products</h1>
+            <div class="products-subtitle" id="productsSubtitle">
+              Hand-picked items for your sample store.
+            </div>
+          </div>
+          <select id="sortSelect" class="sort-select">
+            <option value="default">Sort: Recommended</option>
+            <option value="price-asc">Price: Low → High</option>
+            <option value="price-desc">Price: High → Low</option>
+            <option value="rating-desc">Rating: High → Low</option>
+          </select>
+        </div>
+
+        <div id="productGrid" class="product-grid">
+          <!-- Products will be injected here -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div id="cartBackdrop" class="cart-drawer-backdrop"></div>
+  <aside id="cartDrawer" class="cart-drawer">
+    <div class="cart-header">
+      <div class="cart-title">
+        <h2>Your cart</h2>
+        <span id="cartSubtitle">No items added yet.</span>
+      </div>
+      <button class="cart-close" id="cartCloseBtn">✕</button>
+    </div>
+
+    <div id="cartItems" class="cart-items">
+      <div class="cart-empty">Your cart is empty. Start shopping!</div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <div class="cart-row">
+        <span>Shipping</span>
+        <span id="cartShipping">Free</span>
+      </div>
+      <div class="cart-row">
+        <span>Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button id="checkoutBtn" class="checkout-btn">
+        <span>Checkout</span> <span>→</span>
+      </button>
+    </div>
+  </aside>
+  <script src="./script.js">
+  </script>
+</body>
+</html>
